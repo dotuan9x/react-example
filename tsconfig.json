@@ -1,0 +1,60 @@
+{
+    "compilerOptions": {
+        "outDir": "./build",
+        "target": "es6",
+        "lib": [
+            "dom",
+            "es2020"
+        ],
+        "module": "es2020",
+        "jsx": "react",
+        "noUnusedLocals": true, // Declare variable but not use -> warning error
+        "noUnusedParameters": true,
+        "noImplicitAny": false,
+        "allowSyntheticDefaultImports": true,
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "strict": true,
+        "baseUrl": ".",
+        "types": [
+            "node"
+        ],
+        "typeRoots": [
+            "../node_modules/@types"
+        ],
+        "paths": {
+            "Src/*": [
+                "src/*"
+            ],
+            "Assets/*": [
+                "src/assets/*"
+            ],
+            "Components/*": [
+                "src/components/*"
+            ],
+            "Locale/*": [
+                "src/locale/*"
+            ],
+            "Modules/*": [
+                "src/modules/*"
+            ],
+            "Hooks/*": [
+                "src/hooks/*"
+            ],
+            "Services/*": [
+                "src/services/*"
+            ],
+        },
+        "plugins": [
+            {
+                "name": "typescript-plugin-css-modules"
+            }
+        ],
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
