@@ -2,12 +2,13 @@ const moment = require('moment-timezone');
 const webpack = require('webpack');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const MyCustomPlugin = require('./webpack.plugins');
 const paths = require('./paths');
 
 const version = moment().tz('Asia/Ho_Chi_Minh').format('MMDDHHmm');
 const outputFileName = `${version}/js/[name].bundle.js`;
 const outputChunkFileName = `${version}/js/[name].js`;
+
+const publicPath = 'https://dotuan9x.github.io/react-typescript-example/';
 
 module.exports = {
     devtool: false,
@@ -16,7 +17,8 @@ module.exports = {
     output: {
         path: paths.appBuild,
         filename: outputFileName,
-        chunkFilename: outputChunkFileName
+        chunkFilename: outputChunkFileName,
+        publicPath
     },
     resolve: {
         extensions: ['.js', '.json', '.jsx', '.ts', '.tsx'],
