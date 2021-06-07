@@ -71,7 +71,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server --mode development --open --config config/webpack.config.js",
-    "sandbox": "node --max_old_space_size=4096 ./node_modules/webpack/bin/webpack --config config/webpack.sandbox.js",
+    "build": "node --max_old_space_size=4096 ./node_modules/webpack/bin/webpack --config config/webpack.build.js",
     "test": "jest --config=jest.config.json"
   }
 }

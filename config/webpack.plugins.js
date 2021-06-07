@@ -1,5 +1,4 @@
 require('dotenv').config();
-const axios = require('axios');
 
 module.exports = class MyCustomPlugin {
     constructor(options) {
@@ -32,13 +31,6 @@ module.exports = class MyCustomPlugin {
         compiler.hooks.afterEmit.tap('afterEmit', (compilation) => {
             const {version} = this.options;
 
-            if (version && process.env.ENV && process.env.API_VERSION_HOST) {
-                // Change version after build source code
-                axios.put(process.env.API_VERSION_HOST, {
-                    env: process.env.ENV,
-                    version
-                });
-            }
         });
     }
 };
