@@ -2,6 +2,7 @@ const moment = require('moment-timezone');
 const webpack = require('webpack');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const BrotliPlugin = require('brotli-webpack-plugin');
 const paths = require('./paths');
 
 const version = moment().tz('Asia/Ho_Chi_Minh').format('MMDDHHmm');
@@ -168,6 +169,12 @@ module.exports = {
         }
     },
     plugins: [
+        new BrotliPlugin({
+            asset: '[path].br[query]',
+            test: /\.(js|css|html|svg)$/,
+            threshold: 10240,
+            minRatio: 0.8
+        }),
         new HTMLWebpackPlugin({
             template: `${paths.appPublic}/index.html`,
             filename: `${version}/index.html`,
