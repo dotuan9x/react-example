@@ -5,7 +5,7 @@ const paths = require('./paths');
 const publicPath = '/';
 
 // Config HTTP/HTTPS
-const https = true;
+const https = false;
 const protocol = https ? 'https' : 'http';
 
 const getDevServerConfig = (https) => {
@@ -44,12 +44,8 @@ module.exports = {
             Src: paths.appSrc,
             Assets: paths.appSrc + '/assets/',
             Components: paths.appSrc + '/components/',
-            Hooks: paths.appSrc + '/hooks/',
             Modules: paths.appSrc + '/modules/',
-            Services: paths.appSrc + '/services/',
-            Locale: paths.appSrc + '/locale/',
-            Explorer: paths.appSrc + '/modules/Report/containers/Explorer/',
-            react: require.resolve('react')
+            Services: paths.appSrc + '/services/'
         }
     },
     module: {
@@ -82,7 +78,7 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader']
+                use: ['style-loader', 'css-loader', 'postcss-loader']
             },
             {
                 test: /\.scss$/,
@@ -103,7 +99,7 @@ module.exports = {
                         loader: 'css-loader',
                         options: {
                             modules: true,
-                            localIdentName: 'ants-[local]-[hash:base64:5]',
+                            localIdentName: '[local]-[hash:base64:5]',
                             camelCase: true,
                             sourceMap: true
                         }
@@ -162,31 +158,7 @@ module.exports = {
         new webpack.DefinePlugin({
             PRODUCTION: JSON.stringify(false),
             SITE_URL: JSON.stringify(protocol + '://localhost:8080/'),
-            LOGO_MAIN: JSON.stringify(protocol + '://c0-vcdn.anthill.vn/logo/ants.png'),
-            LOGO_SUB: JSON.stringify(protocol + '://c0-vcdn.anthill.vn/logo/ants-left.png'),
-            ASSETS_URL: JSON.stringify(protocol + '://localhost:8080/'),
-            API_HOST: JSON.stringify(protocol + '://vinhpx.antalyser.adxdev.vn/api/'),
-            API_HOST_V3: JSON.stringify(protocol + '://thinhdnp.antalyser.adxdev.vn/v3.1/api/'),
-            API_LOGGING: JSON.stringify(protocol + '://v1.logging.adx.ants.vn/logging'),
-            API_LOGGING_ERROR: JSON.stringify(protocol + '://thinhdnp.v3.adxdev.vn/logging/v3.1/'),
-            ADX_SITE_URL: JSON.stringify(protocol + '://vinhpx.a1.adxdev.vn/v3/'),
-            ADX_API_HOST: JSON.stringify(protocol + '://thanghn.a1.adxdev.vn/v3/api/'),
-            ADX_API_HOST_V3: JSON.stringify(protocol + '://thinhdnp.a1.adxdev.vn/v3.1/api/'),
-            PACKAGE_API_HOST: JSON.stringify(protocol + '://vinhpx.package.admin.adxdev.vn/api/'),
-            API_ID: JSON.stringify('10507'),
-            ST_VERSION: JSON.stringify('1478967892'),
-            PROJECT_ID: JSON.stringify('2E4WptU6ChYuajgVBHSJetVLa6FVQMRmK'),
-            U_OGS: JSON.stringify('uogs_dev'),
-            AUTH_ADX_DOMAIN: JSON.stringify(protocol + '://khanhhv.ogs.adxdev.vn/'),
-            ST_OGS: JSON.stringify(protocol + '://khanhhv.st.ogs.adxdev.vn/'),
-            ST_URL_UPLOAD: JSON.stringify(protocol + '://tuandv.st.antalyser.adxdev.vn'),
-            APPLICATION_ENV: JSON.stringify('development'),
-            ANTALYSER_MODULE: JSON.stringify('4'),
-            LANGUAGE: JSON.stringify('en'),
-            DEVICE: JSON.stringify('mobile'),
-            IS_IFRAME: JSON.stringify(0),
-            MONITOR_PID: JSON.stringify('1583815897211'),
-            THEME: JSON.stringify('')
+            API_HOST: JSON.stringify(protocol + '')
         }),
         new HTMLWebpackPlugin({
             template: paths.appPublic + '/index.html',

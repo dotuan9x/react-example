@@ -9,6 +9,8 @@ import store from './store';
 // Components
 import Layouts from 'Modules/Layouts';
 
+import 'tailwindcss/tailwind.css';
+
 const App = () => {
     return (
         <Provider store={store}>
