@@ -10,7 +10,7 @@ const appReducer = combineReducers({
     Layouts: Layouts
 });
 
-let store: {} = {};
+let store;
 
 const sagaMiddleware = createSagaMiddleware();
 

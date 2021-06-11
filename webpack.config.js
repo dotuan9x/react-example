@@ -33,7 +33,7 @@ module.exports = {
     entry: ['@babel/polyfill', paths.appIndexTsx],
     output: {
         path: paths.appBuild,
-        filename: 'static/js/bundle.js',
+        filename: 'static/js/[name].js',
         chunkFilename: '[name].js',
         publicPath: publicPath,
         crossOriginLoading: 'anonymous'
@@ -143,11 +143,11 @@ module.exports = {
         ]
     },
     devServer: getDevServerConfig(https),
-    /* optimization: {
+    optimization: {
         splitChunks: {
             cacheGroups: {
                 default: false,
-                vendors: false,
+                defaultVendors: false,
                 // Vendor chunk
                 vendor: {
                     // Name of the chunk
@@ -167,7 +167,7 @@ module.exports = {
                 }
             }
         }
-    }, */
+    },
     plugins: [
         new webpack.DefinePlugin({
             PRODUCTION: JSON.stringify(false),
