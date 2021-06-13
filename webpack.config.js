@@ -33,7 +33,7 @@ module.exports = {
     entry: ['@babel/polyfill', paths.appIndexTsx],
     output: {
         path: paths.appBuild,
-        filename: 'static/js/[name].js',
+        filename: '[name].js',
         chunkFilename: '[name].js',
         publicPath: publicPath,
         crossOriginLoading: 'anonymous'

@@ -16,7 +16,7 @@ module.exports = {
     mode: 'production',
     entry: ['@babel/polyfill', paths.appIndexTsx],
     output: {
-        path: paths.appBuild,
+        path: paths.appBundle,
         filename: outputFileName,
         chunkFilename: outputChunkFileName,
         publicPath
