@@ -4,11 +4,13 @@ import {withRouter} from 'react-router-dom';
 
 // Components
 // import DefaultMain from 'Modules/Layouts/containers/DefaultMain';
+import {Button} from 'Components/Button';
 
 const Layouts = () => {
     return (
         <div className="flex flex-col">
-            <div className="px-2 py-2 bg-blue-500">
+            <Button width={200} />
+            {/* <div className="px-2 py-2 bg-blue-500">
                 <div className="flex flex-row">
                     <div className="flex-1">
                         <a href="#">
@@ -88,7 +90,7 @@ const Layouts = () => {
                     </ul>
                 </div>
                 <div className="" />
-            </div>
+            </div> */}
         </div>
     );
 };
