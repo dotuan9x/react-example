@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const fs = require('fs');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
-const paths = require('./paths');
+const paths = require('./config/paths');
 const publicPath = '/';
 
 // Config HTTP/HTTPS
@@ -33,7 +33,7 @@ module.exports = {
     entry: ['@babel/polyfill', paths.appIndexTsx],
     output: {
         path: paths.appBuild,
-        filename: 'static/js/bundle.js',
+        filename: '[name].js',
         chunkFilename: '[name].js',
         publicPath: publicPath,
         crossOriginLoading: 'anonymous'
@@ -146,10 +146,24 @@ module.exports = {
     optimization: {
         splitChunks: {
             cacheGroups: {
+                default: false,
+                defaultVendors: false,
+                // Vendor chunk
+                vendor: {
+                    // Name of the chunk
+                    name: 'vendor',
+                    // Async + async chunks
+                    chunks: 'all',
+                    // Import file path containing node_modules
+                    test: /node_modules/,
+                    priority: 20
+                },
                 commons: {
                     test: /[\\/]node_modules[\\/]/,
                     name: 'vendors',
-                    chunks: 'all'
+                    chunks: 'all',
+                    reuseExistingChunk: true,
+                    enforce: true
                 }
             }
         }
