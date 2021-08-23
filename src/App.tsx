@@ -3,7 +3,7 @@ import React from 'react';
 
 const App = () => {
     return (
-        <div>Hello React Examples</div>
+        <div className="flex bg-green-100">Hello React Tailwindcss Examples</div>
     );
 };
 
