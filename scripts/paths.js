@@ -11,8 +11,7 @@ function resolveApp(relativePath) {
 // Config after eject: we're in ./config/
 module.exports = {
     appBuild: resolveApp('build'),
-    appBundle: resolveApp('docs'),
     appPublic: resolveApp('public'),
-    appIndexTsx: resolveApp('src/index.tsx'),
+    appIndex: resolveApp('src/index.tsx'),
     appSrc: resolveApp('src')
 };

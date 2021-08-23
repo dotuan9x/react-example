@@ -1,4 +1,4 @@
-export const checkJSON = (_str) => {
+export const checkJSON = (_str: string) => {
     try {
         let result = true;
 
@@ -10,6 +10,6 @@ export const checkJSON = (_str) => {
 
         return result;
     } catch (error) {
-        return  _str
+        return  _str;
     }
 };

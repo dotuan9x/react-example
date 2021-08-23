@@ -4,51 +4,39 @@
         "target": "es6",
         "lib": [
             "dom",
-            "es2020"
+            "dom.iterable",
+            "esnext"
         ],
-        "module": "es2020",
-        "jsx": "react",
-        "noUnusedLocals": true, // Declare variable but not use -> warning error
-        "noUnusedParameters": true,
-        "noImplicitAny": false,
+        "allowJs": true,
+        "skipLibCheck": true,
+        "esModuleInterop": true,
         "allowSyntheticDefaultImports": true,
-        "moduleResolution": "node",
-        "sourceMap": true,
         "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "noFallthroughCasesInSwitch": true,
+        "module": "esnext",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "noEmit": false,
+        "declaration": true,
+        "jsx": "react",
         "baseUrl": ".",
-        "types": [
-            "node"
-        ],
         "typeRoots": [
-            "../node_modules/@types"
+            "node_modules/@types"
         ],
         "paths": {
             "Src/*": [
                 "src/*"
-            ],
-            "Assets/*": [
-                "src/assets/*"
-            ],
-            "Components/*": [
-                "src/components/*"
-            ],
-            "Modules/*": [
-                "src/modules/*"
-            ],
-            "Hooks/*": [
-                "src/hooks/*"
             ]
-        },
-        "plugins": [
-            {
-                "name": "typescript-plugin-css-modules"
-            }
-        ],
+        }
     },
     "include": [
         "src/**/*"
     ],
     "exclude": [
-        "node_modules"
+        "node_modules",
+        "**/*.spec.ts",
+        "**/*.spec.tsx"
     ]
 }

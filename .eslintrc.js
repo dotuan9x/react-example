@@ -25,6 +25,7 @@ module.exports = {
     },
     plugins: ['react', '@typescript-eslint'],
     rules: {
+        '@typescript-eslint/no-var-requires': 0,
         'react/prop-types': 0,
         'react/display-name': 0,
         'no-mixed-spaces-and-tabs': 0,
