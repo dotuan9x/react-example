@@ -32,18 +32,12 @@
             "Components/*": [
                 "src/components/*"
             ],
-            "Locale/*": [
-                "src/locale/*"
-            ],
             "Modules/*": [
                 "src/modules/*"
             ],
             "Hooks/*": [
                 "src/hooks/*"
-            ],
-            "Services/*": [
-                "src/services/*"
-            ],
+            ]
         },
         "plugins": [
             {

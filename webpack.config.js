@@ -6,7 +6,6 @@ const publicPath = '/';
 
 // Config HTTP/HTTPS
 const https = false;
-const protocol = https ? 'https' : 'http';
 
 const getDevServerConfig = (https) => {
     let devServer = {
@@ -44,8 +43,7 @@ module.exports = {
             Src: paths.appSrc,
             Assets: paths.appSrc + '/assets/',
             Components: paths.appSrc + '/components/',
-            Modules: paths.appSrc + '/modules/',
-            Services: paths.appSrc + '/services/'
+            Modules: paths.appSrc + '/modules/'
         }
     },
     module: {
@@ -170,9 +168,7 @@ module.exports = {
     },
     plugins: [
         new webpack.DefinePlugin({
-            PRODUCTION: JSON.stringify(false),
-            SITE_URL: JSON.stringify(protocol + '://localhost:8080/'),
-            API_HOST: JSON.stringify(protocol + '')
+            PRODUCTION: JSON.stringify(false)
         }),
         new HTMLWebpackPlugin({
             template: paths.appPublic + '/index.html',
