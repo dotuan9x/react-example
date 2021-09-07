@@ -10,6 +10,7 @@
 - [ ] Ví dụ multiple themes trong React (dark/light theme)
 - [ ] Ví dụ SmartGrid 
 - [ ] Ví dụ Drag and drop
+- [ ] Các cách tạo icon từ PSD
 - [x] [Ví dụ Resizeable component](https://github.com/dotuan9x/react-example/tree/master/src/examples/resizeable)
 - [ ] Đọc json file sau đó render thành component
 - [ ] Cho phép 3rd viết components và cấu hình để hiện thị bên ứng dụng của mình
