@@ -1,13 +1,10 @@
-const moment = require('moment-timezone');
 const webpack = require('webpack');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const BrotliPlugin = require('brotli-webpack-plugin');
 const paths = require('./paths');
 
-const version = moment().tz('Asia/Ho_Chi_Minh').format('MMDDHHmm');
-const outputFileName = `${version}/js/[name].bundle.js`;
-const outputChunkFileName = `${version}/js/[name].js`;
+const outputFileName = 'js/[name].bundle.js';
+const outputChunkFileName = 'js/[name].js';
 
 const publicPath = 'https://dotuan9x.github.io/react-typescript-example/';
 
@@ -16,7 +13,7 @@ module.exports = {
     mode: 'production',
     entry: ['@babel/polyfill', paths.appIndexTsx],
     output: {
-        path: paths.appBundle,
+        path: paths.appBuild,
         filename: outputFileName,
         chunkFilename: outputChunkFileName,
         publicPath
@@ -101,7 +98,7 @@ module.exports = {
                 use: [{
                     loader: 'file-loader',
                     options: {
-                        name: `./${version}/images/[contenthash].[ext]`
+                        name: './images/[contenthash].[ext]'
                     }
                 }]
             },
@@ -110,7 +107,7 @@ module.exports = {
                 use: [{
                     loader: 'file-loader',
                     options: {
-                        name: `./${version}/svg/[contenthash].[ext]`
+                        name: './svg/[contenthash].[ext]'
                     }
                 }]
             },
@@ -120,7 +117,7 @@ module.exports = {
                 use: [{
                     loader: 'file-loader',
                     options: {
-                        name: `./${version}/json/[contenthash].[ext]`
+                        name: './json/[contenthash].[ext]'
                     }
                 }]
             },
@@ -129,7 +126,7 @@ module.exports = {
                 use: [{
                     loader: 'file-loader',
                     options: {
-                        name: `./${version}/fonts/[contenthash].[ext]`
+                        name: './fonts/[contenthash].[ext]'
                     }
                 }]
             }
@@ -169,19 +166,13 @@ module.exports = {
         }
     },
     plugins: [
-        new BrotliPlugin({
-            asset: '[path].br[query]',
-            test: /\.(js|css|html|svg)$/,
-            threshold: 10240,
-            minRatio: 0.8
-        }),
         new HTMLWebpackPlugin({
             template: `${paths.appPublic}/index.html`,
-            filename: `${version}/index.html`,
+            filename: 'index.html',
             chunksSortMode: 'none'
         }),
         new webpack.SourceMapDevToolPlugin({
-            filename: `${version}/sourcemaps/[name].map`
+            filename: 'sourcemaps/[name].map'
         })
     ]
 };
