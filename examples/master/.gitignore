@@ -5,7 +5,6 @@ node_modules
 
 jsconfig.json
 WSConfig.js
-yarn.lock
 
 .vscode
 # misc

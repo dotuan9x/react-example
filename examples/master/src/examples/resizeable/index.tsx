@@ -122,10 +122,12 @@ const Resizeable = () => {
         };
 
         const onMouseUp = () => {
+            // @ts-ignore
             window.removeEventListener('mousemove', onMouseMove);
             window.removeEventListener('mouseup', onMouseUp);
         };
 
+        // @ts-ignore
         window.addEventListener('mousemove', onMouseMove);
 
         window.addEventListener('mouseup', onMouseUp);
